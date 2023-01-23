@@ -19,9 +19,13 @@ const postTypeDef = gql`
     category: String
     content: String!
   }
+  input DeleteInput{
+  postId: ID!
+  }
 
   type Mutation {
     createPost(postInput: PostInput): Post
+    deletePost(postInput: DeleteInput): Post
   }
 `;
 

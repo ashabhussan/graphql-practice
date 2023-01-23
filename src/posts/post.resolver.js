@@ -34,6 +34,22 @@ const postResolver = {
         });
       }
     },
+    deletePost: async (_, args, ctx, info) => {
+      console.log('🚀 post.resolver-38-> ctx =>', ctx);
+      // const permission =  
+      const { postId } = args.postInput;
+
+      try {
+        const post = await Post.findByIdAndRemove(postId);
+        return post;
+      } catch (err) {
+        console.error(err);
+        return new ApolloError(INTERNAL_SERVER_ERROR.message, INTERNAL_SERVER_ERROR.code, {
+          error: true,
+          message: INTERNAL_SERVER_ERROR.message,
+        });
+      }
+    },
   },
 };
 

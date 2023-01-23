@@ -14,6 +14,11 @@ const userSchema = Schema({
         minLength: [5, 'Minimum Length of the email must be 5'],
         maxLength: 255,
     },
+    role: {
+        type: String,
+        role: ['user', 'admin'],
+        default: 'user',
+    },
     password: {
         type: String,
         required: true,

@@ -12,8 +12,9 @@ const server = new ApolloServer({
   context: async ({ req }) => {
     if (req.headers.authorization) {
       const token = req.headers.authorization.split(' ')[1];
-      const userInfo = await jwt.verify(token, JWT_SECRET);
-      return userInfo
+      const userInfo = jwt.verify(token, JWT_SECRET);
+      console.log('🚀 server-16-> userInfo =>', userInfo);
+      return { userInfo }
     }
   },
 });
