@@ -20,7 +20,7 @@ const postSchema = new Schema({
     trim: true,
   },
 });
-
+// this is post model
 const Post = model('Post', postSchema);
 
 module.exports = Post;
